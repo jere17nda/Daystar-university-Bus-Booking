@@ -1,53 +1,57 @@
 <style>
-    body{
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #F4F4F4;
+    body {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #F4F4F4;
     }
 
-    *, *::after, *::before{
+    *,
+    *::after,
+    *::before {
         box-sizing: inherit;
     }
+
     /* Navbar Styling  - START*/
 
-    .alert{
+    .alert {
         z-index: 3;
     }
 
-    .alert li{
+    .alert li {
         font-weight: normal;
     }
 
-    #noRoutes{
+    #noRoutes {
         background-color: black;
         color: white;
     }
 
-    #navbar{
+    #navbar {
         text-align: center;
         padding: 0.4rem 0;
     }
 
-    nav div, nav ul{
+    nav div,
+    nav ul {
         margin-top: 1rem;
     }
 
-    nav div:first-child{
+    nav div:first-child {
         margin-top: 0;
     }
 
-    nav > div a{
+    nav>div a {
         display: block;
     }
 
-    ul{
+    ul {
         list-style-type: none;
         padding: 0;
         margin-bottom: 0;
     }
 
-    nav a{
+    nav a {
         padding-bottom: 0.2rem;
         text-decoration: none;
         color: black;
@@ -56,50 +60,50 @@
     }
 
     /* Overriding Bootstrap */
-    nav a:hover{
+    nav a:hover {
         color: black;
     }
 
-    nav a:not(.nav-logo):hover{
+    nav a:not(.nav-logo):hover {
         text-decoration: underline;
     }
 
-    .nav-logo{
+    .nav-logo {
         color: #207DFF;
         letter-spacing: 5px;
         transition: none;
     }
 
-    .nav-scroll{
+    .nav-scroll {
         position: fixed;
         background-color: white;
     }
 
     /* Navbar Styling  - END*/
-    main{
+    main {
         height: 85vh;
     }
 
-    #searched-route{
+    #searched-route {
         /* margin-top: 2rem; */
         margin-bottom: 2rem;
         background-color: black;
         color: white;
     }
 
-    #result-num, 
+    #result-num,
     .arrow,
-    #num-seats{
+    #num-seats {
         font-weight: bold;
         color: red;
     }
 
-    .arrow{
+    .arrow {
         display: inline-block;
         margin: 0 1rem;
     }
 
-    #searched-route ul{
+    #searched-route ul {
         height: 20vh;
         display: flex;
         flex-direction: column;
@@ -107,21 +111,21 @@
         align-items: center;
     }
 
-    #searched-route ul li:first-child{
+    #searched-route ul li:first-child {
         align-self: flex-start;
         margin-left: 1rem;
     }
 
-    #searched-route li{
+    #searched-route li {
         text-transform: uppercase;
     }
 
-    #main-route{
+    #main-route {
         font-weight: bold;
     }
 
     /* Results Styling - START */
-    .searched-result-item{
+    .searched-result-item {
         background-color: white;
         padding: 1rem 0;
         text-align: center;
@@ -130,42 +134,42 @@
         margin-bottom: 1rem;
     }
 
-    .searched-container{
+    .searched-container {
         margin: 0 auto;
         width: 90%;
     }
 
-    .searched-result-item > div{
+    .searched-result-item>div {
         text-transform: uppercase;
     }
 
 
-    .searched-result-item .arrow{
+    .searched-result-item .arrow {
         color: blue;
     }
 
-    .route-id{
+    .route-id {
         color: red;
         font-size: 1.3rem;
     }
 
-    .cities{
+    .cities {
         font-size: 12px;
         color: #0EF80A;
     }
 
-    .cities .via{
+    .cities .via {
         margin-right: 0.4rem;
         color: red;
     }
 
-    .price{
+    .price {
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
         font-weight: bold;
     }
 
-    .book-seat-btn{
+    .book-seat-btn {
         border-radius: 5px;
         background-color: #84F572;
         border: none;
@@ -174,9 +178,8 @@
         padding: 0.5rem;
     }
 
-/* Seats Diagram Styling */
-    .seatsDiagram td
-    {
+    /* Seats Diagram Styling */
+    .seatsDiagram td {
         padding: 0.3rem;
         text-align: center;
         margin: 0.3rem;
@@ -188,7 +191,7 @@
     }
 
 
-    .seatsDiagram  td.selected{
+    .seatsDiagram td.selected {
         background-color: greenyellow;
         -webkit-animation-name: rubberBand;
         animation-name: rubberBand;
@@ -196,23 +199,22 @@
         animation-fill-mode: both;
     }
 
-    .seatsDiagram td.notAvailable
-    {
+    .seatsDiagram td.notAvailable {
         color: white;
         background-color: #db2619;
     }
 
-    .seatsDiagram td:not(.space,.notAvailable):hover{
+    .seatsDiagram td:not(.space, .notAvailable):hover {
         cursor: pointer;
-        border-color:greenyellow;
+        border-color: greenyellow;
     }
 
-    .seatsDiagram .space{
+    .seatsDiagram .space {
         background-color: white;
         border: none;
     }
 
-    .bookRow{
+    .bookRow {
         border: 2px solid;
         background-color: white;
         border-radius: 5px;
@@ -220,20 +222,20 @@
         margin-bottom: 2rem;
     }
 
-    .bookForm{
+    .bookForm {
         display: flex;
         flex-direction: column;
         align-items: center;
         position: relative;
     }
 
-    .seatsDiagram, 
-    .customer-details{
-        width: 640px;   
+    .seatsDiagram,
+    .customer-details {
+        width: 640px;
         max-width: 100%;
     }
 
-    .form-continued{
+    .form-continued {
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -241,12 +243,12 @@
         width: 90%;
         margin: 0 auto;
     }
-    
-    .form-continued > *{
+
+    .form-continued>* {
         margin: 1rem 0;
     }
-    
-    .bookForm input{
+
+    .bookForm input {
         width: 100%;
         padding: 0.3rem;
         border-radius: 4px;
@@ -254,16 +256,16 @@
     }
 
 
-    .bookForm .form-continued > div:first-child{
+    .bookForm .form-continued>div:first-child {
         display: flex;
         justify-content: space-between;
     }
 
-    .bookForm .form-continued > div:first-child input{
-        flex-basis: 47%; 
+    .bookForm .form-continued>div:first-child input {
+        flex-basis: 47%;
     }
 
-    .bookForm .book-btn{
+    .bookForm .book-btn {
         border-radius: 5px;
         font-family: Montserrat;
         font-weight: bold;
@@ -273,17 +275,17 @@
         padding: 0.5rem 0;
     }
 
-    .close-btn{
+    .close-btn {
         position: absolute;
         top: 0%;
         right: 0.3%;
     }
 
-    .close-btn:hover{
+    .close-btn:hover {
         color: #6c757d;
     }
 
-    .busNo{
+    .busNo {
         font-size: 1.2rem;
         padding-top: 1rem;
         text-align: center;
@@ -292,7 +294,7 @@
     }
 
 
-    footer{
+    footer {
         /* background-color: black;
         color: white; */
         border-top: 2px solid #e2e2e2;
@@ -301,102 +303,104 @@
         font-weight: bold;
     }
 
-    #searched-route{
+    #searched-route {
         margin-bottom: 2rem;
     }
-   
-    footer p{
+
+    footer p {
         margin: 0;
     }
+
     @-webkit-keyframes rubberBand {
         0% {
             -webkit-transform: scale3d(1, 1, 1);
-                    transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
         }
 
         30% {
             -webkit-transform: scale3d(1.25, 0.75, 1);
-                    transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
         }
 
         40% {
             -webkit-transform: scale3d(0.75, 1.25, 1);
-                    transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
         }
 
         50% {
             -webkit-transform: scale3d(1.15, 0.85, 1);
-                    transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
         }
 
         65% {
             -webkit-transform: scale3d(.95, 1.05, 1);
-                    transform: scale3d(.95, 1.05, 1);
+            transform: scale3d(.95, 1.05, 1);
         }
 
         75% {
             -webkit-transform: scale3d(1.05, .95, 1);
-                    transform: scale3d(1.05, .95, 1);
+            transform: scale3d(1.05, .95, 1);
         }
 
         100% {
             -webkit-transform: scale3d(1, 1, 1);
-                    transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
         }
-        }
+    }
 
-        @keyframes rubberBand {
+    @keyframes rubberBand {
         0% {
             -webkit-transform: scale3d(1, 1, 1);
-                    transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
         }
 
         30% {
             -webkit-transform: scale3d(1.25, 0.75, 1);
-                    transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
         }
 
         40% {
             -webkit-transform: scale3d(0.75, 1.25, 1);
-                    transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
         }
 
         50% {
             -webkit-transform: scale3d(1.15, 0.85, 1);
-                    transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
         }
 
         65% {
             -webkit-transform: scale3d(.95, 1.05, 1);
-                    transform: scale3d(.95, 1.05, 1);
+            transform: scale3d(.95, 1.05, 1);
         }
 
         75% {
             -webkit-transform: scale3d(1.05, .95, 1);
-                    transform: scale3d(1.05, .95, 1);
+            transform: scale3d(1.05, .95, 1);
         }
 
         100% {
             -webkit-transform: scale3d(1, 1, 1);
-                    transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
         }
-        }
+    }
 
-        .rubberBand {
+    .rubberBand {
         -webkit-animation-name: rubberBand;
-                animation-name: rubberBand;
-        }
+        animation-name: rubberBand;
+    }
 
     /* Tablet */
-    @media only screen and (min-width: 784px){
-        header{
+    @media only screen and (min-width: 784px) {
+        header {
             position: fixed;
             display: block;
             top: 0;
             width: 100%;
             z-index: 1;
         }
-        nav{
+
+        nav {
             display: flex;
             justify-content: space-between;
             width: 100%;
@@ -404,31 +408,32 @@
             padding-top: 1rem;
         }
 
-        nav > div{
+        nav>div {
             display: flex;
             align-items: center;
             flex-grow: 1;
             justify-content: center;
         }
 
-        nav ul{
+        nav ul {
             display: flex;
             flex-grow: 1;
             justify-content: center;
         }
 
-        nav div, nav ul{
+        nav div,
+        nav ul {
             margin-top: 0;
         }
-        
-        nav a{
+
+        nav a {
             border-bottom: 2px solid transparent;
             margin: 0 1rem;
             transition: border-color 800ms;
             border-radius: 2px;
         }
 
-        nav a:not(.nav-logo):hover{
+        nav a:not(.nav-logo):hover {
             border-color: black;
             text-decoration: none;
         }
@@ -436,43 +441,46 @@
     }
 
     /* Desktops */
-    @media only screen and (min-width: 992px){
-        nav, #searched-route{
+    @media only screen and (min-width: 992px) {
+
+        nav,
+        #searched-route {
             width: 80%;
         }
 
-        #searched-route{
+        #searched-route {
             margin: 4rem auto 2rem auto;
         }
 
-        #searched-route ul{
+        #searched-route ul {
             flex-direction: row;
             justify-content: space-between;
         }
 
-        #searched-route ul li:first-child{
+        #searched-route ul li:first-child {
             align-self: center;
             margin: 0;
             margin-left: 1rem;
         }
 
-        #searched-route li:last-child{
+        #searched-route li:last-child {
             flex-basis: 17.5%;
             text-align: right;
             margin-right: 1rem;
         }
 
-        .searched-container{
+        .searched-container {
             width: 70%;
         }
-        .searched-result-item{
+
+        .searched-result-item {
             padding: 0;
             display: flex;
             justify-content: space-between;
         }
 
 
-        .searched-result-item > * {
+        .searched-result-item>* {
             border: 0 solid black;
             border-right-width: 2px;
             display: flex;
@@ -480,41 +488,41 @@
             padding: 0 0.5rem;
         }
 
-        .searched-result-item > *:last-child{
+        .searched-result-item>*:last-child {
             border-right-width: 0;
         }
 
-        .searched-result-item > * > *:first-child{
+        .searched-result-item>*>*:first-child {
             margin: 0;
         }
 
-        .route-desc, .booking-desc{
+        .route-desc,
+        .booking-desc {
             flex-direction: column;
         }
 
-        .booking-desc{
+        .booking-desc {
             justify-content: space-around;
         }
-        
-        .route-desc{
+
+        .route-desc {
             flex-grow: 1;
         }
 
-        .main-route{
+        .main-route {
             padding-top: 2.4rem;
             width: 100%;
             display: flex;
             justify-content: space-between;
         }
 
-        .bookForm{
+        .bookForm {
             display: flex;
-            flex-direction: row; 
+            flex-direction: row;
         }
 
-        .customer-details{
+        .customer-details {
             width: auto;
         }
     }
-
 </style>

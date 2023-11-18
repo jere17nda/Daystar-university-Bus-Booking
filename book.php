@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,32 +77,33 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Bus Booking</h1>
+    <div class="container">
+        <h1>Bus Booking</h1>
 
-    <!-- Search Form -->
-    <div class="search-form">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <label for="departure">Departure:</label>
-            <input type="text" name="departure" required>
+        <!-- Search Form -->
+        <div class="search-form">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <label for="departure">Departure:</label>
+                <input type="text" name="departure" required>
 
-            <label for="destination">Destination:</label>
-            <input type="text" name="destination" required>
+                <label for="destination">Destination:</label>
+                <input type="text" name="destination" required>
 
-            <label for="date">Date of Travel:</label>
-            <input type="date" name="date" required>
+                <label for="date">Date of Travel:</label>
+                <input type="date" name="date" required>
 
-            <button type="submit" name="search">Search Buses</button>
-        </form>
-    </div>
+                <button type="submit" name="search">Search Buses</button>
+            </form>
+        </div>
 
-    <!-- Display Search Results -->
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
-        // Include search results
-        echo '<div class="search-results">
+        <!-- Display Search Results -->
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
+            // Include search results
+            echo '<div class="search-results">
                   <h2>Search Results</h2>
                   <div class="bus-option">
                       <span>Bus A</span>
@@ -124,25 +126,26 @@
                       </div>
                   </div>
               </div>';
-    }
-    ?>
+        }
+        ?>
 
-</div>
+    </div>
 
-<script>
-    // JavaScript goes here
-    function selectSeat() {
-        document.getElementById('seatSelectionModal').style.display = 'block';
-    }
+    <script>
+        // JavaScript goes here
+        function selectSeat() {
+            document.getElementById('seatSelectionModal').style.display = 'block';
+        }
 
-    function closeModal() {
-        document.getElementById('seatSelectionModal').style.display = 'none';
-    }
+        function closeModal() {
+            document.getElementById('seatSelectionModal').style.display = 'none';
+        }
 
-    function confirmBooking() {
-        alert('Booking confirmed!');
-        closeModal();
-    }
-</script>
+        function confirmBooking() {
+            alert('Booking confirmed!');
+            closeModal();
+        }
+    </script>
 </body>
+
 </html>

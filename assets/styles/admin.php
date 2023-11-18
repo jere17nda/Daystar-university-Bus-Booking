@@ -1,20 +1,22 @@
 <style>
-    body{
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    background-color: white;
+    body {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        background-color: white;
     }
 
-    html{
+    html {
         scroll-behavior: smooth;
     }
 
-    *, *::after, *::before{
+    *,
+    *::after,
+    *::before {
         box-sizing: inherit;
     }
 
-    #navbar{
+    #navbar {
         background-color: black;
         color: white;
         display: flex;
@@ -26,35 +28,35 @@
         width: 100%;
     }
 
-    #navbar ul{
+    #navbar ul {
         list-style-type: none;
         padding: 0.4rem 0;
         margin: 0;
         display: flex;
     }
 
-    .nav-item{
+    .nav-item {
         margin: 0 0.3rem;
         display: flex;
         justify-content: center;
         align-items: center;
-    } 
+    }
 
-    #USER{
+    #USER {
         color: #207DFF;
     }
 
 
-    .adminDp{
+    .adminDp {
         border-radius: 50%;
     }
 
-    #welcome{
+    #welcome {
         background-color: white;
         /* border-bottom: 1px solid rgb(19, 18, 18); */
     }
 
-    #welcome ul{
+    #welcome ul {
         display: flex;
         justify-content: space-between;
         list-style-type: none;
@@ -62,17 +64,17 @@
         margin: 0;
     }
 
-    #welcome li{
+    #welcome li {
         margin: 0 1rem;
         padding: 0.5rem 0;
     }
 
-    #welcome li:first-child{
+    #welcome li:first-child {
         font-weight: 800;
         font-size: 1.4rem;
     }
 
-    #logout{
+    #logout {
         padding: 0.3rem 0.7rem;
         background-color: #207DFF;
         font-weight: 600;
@@ -81,24 +83,24 @@
         border-radius: 7px;
     }
 
-    #logout a{
+    #logout a {
         color: white;
         text-decoration: none;
     }
 
-    footer{
+    footer {
         border-top: 2px solid #e2e2e2;
         padding: 0.5rem 0;
         text-align: center;
         font-weight: bold;
     }
 
-    footer p{
+    footer p {
         margin: 0;
     }
 
-    @media only screen and (min-width:1000px){
-        #sidebar{
+    @media only screen and (min-width:1000px) {
+        #sidebar {
             text-align: center;
             /* background-color: #207DFF; */
             background-color: #3885c5;
@@ -110,24 +112,26 @@
             z-index: 2;
             height: 100vh;
         }
-        #sidebar h3{
+
+        #sidebar h3 {
             margin: 0.5rem 0;
         }
 
-        #sidebar p{
+        #sidebar p {
             margin: 0;
         }
 
-        #sidebar ul{
+        #sidebar ul {
             margin-top: 2rem;
         }
 
-        #options{
+        #options {
             list-style-type: none;
             text-align: left;
             padding-left: 0;
         }
-        .option a{
+
+        .option a {
             display: block;
             padding: 0.5rem;
             text-decoration: none;
@@ -135,20 +139,20 @@
         }
 
         .active {
-            background-color:#f7f7f7;
-            color:black;
+            background-color: #f7f7f7;
+            color: black;
         }
 
-        .option a:hover{
+        .option a:hover {
             color: black;
             background-color: white;
         }
 
-        #main-content{
+        #main-content {
             margin-left: 16%;
         }
 
-        .info-box{
+        .info-box {
             flex-basis: 20%;
         }
     }

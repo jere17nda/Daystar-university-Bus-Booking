@@ -1,24 +1,28 @@
 <style>
-    body, html{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        scroll-behavior: smooth;
     }
 
-    *, *::after, *::before{
+    *,
+    *::after,
+    *::before {
         box-sizing: inherit;
     }
-    .link-light{
+
+    .link-light {
         text-decoration: none;
     }
 
-    .searchQuery{
+    .searchQuery {
         position: relative;
     }
 
-    .sugg{
+    .sugg {
         position: absolute;
         width: 100%;
         z-index: 1;
@@ -27,57 +31,59 @@
         overflow: auto;
     }
 
-    .sugg li{
+    .sugg li {
         list-style-type: none;
         padding: 0;
         text-align: left;
         padding: 0.3rem;
         text-transform: capitalize;
-        border-style: solid; 
+        border-style: solid;
         border-color: black;
         border-width: 0 2px 2px 2px;
         border-radius: 5px;
     }
 
-    .sugg li:hover{
+    .sugg li:hover {
         background-color: #efefef;
         cursor: pointer;
     }
 
 
-    .hl{
+    .hl {
         background-color: #ddbea9;
     }
 
 
     /* Overriding Bootstrap */
-    nav a:hover{
+    nav a:hover {
         color: black;
     }
-    nav{
+
+    nav {
         text-align: center;
         padding: 1.5rem 0;
     }
 
-    nav div, nav ul{
+    nav div,
+    nav ul {
         margin-top: 1rem;
     }
 
-    nav div:first-child{
+    nav div:first-child {
         margin-top: 0;
     }
 
-    nav > div a{
+    nav>div a {
         display: block;
     }
 
-    nav ul{
+    nav ul {
         list-style-type: none;
         padding: 0;
         margin-bottom: 0;
     }
 
-    nav a{
+    nav a {
         padding-bottom: 0.2rem;
         text-decoration: none;
         color: black;
@@ -85,35 +91,36 @@
         text-transform: uppercase;
     }
 
-    nav a:not(.nav-logo):hover{
+    nav a:not(.nav-logo):hover {
         text-decoration: underline;
     }
 
-    .nav-logo{
+    .nav-logo {
         color: #207DFF;
         letter-spacing: 5px;
         transition: none;
     }
 
     /* Alert Message on top of the header */
-    .alert{
+    .alert {
         z-index: 3;
         border-radius: 0px;
     }
 
 
-    #home{
+    #home {
         height: 70vh;
         background-image: url("https://i.ytimg.com/vi/GgepodIfo6c/maxresdefault.jpg");
         background-size: cover;
-        background-position: 0% 65%;;
+        background-position: 0% 65%;
+        ;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    #route-search-form{
+    #route-search-form {
         width: 50%;
         padding: 1rem 0.5rem;
         color: black;
@@ -121,7 +128,7 @@
         z-index: 1;
     }
 
-    #route-search-form::before{
+    #route-search-form::before {
         content: "";
         position: absolute;
         top: 0%;
@@ -134,22 +141,23 @@
     }
 
 
-    #route-search-form h1{
+    #route-search-form h1 {
         margin-top: 0;
         text-align: center;
         color: black;
     }
 
-    form{
+    form {
         padding: 0 0.5rem;
         font-weight: bold;
     }
 
-    #route-search-form > div{
+    #route-search-form>div {
         margin: 1rem 0;
     }
 
-    form input, form textarea{
+    form input,
+    form textarea {
         border: 2px solid black;
         outline: none;
         width: 100%;
@@ -159,17 +167,17 @@
     }
 
 
-    #route-search-form form input{
+    #route-search-form form input {
         margin-top: 0.8rem;
     }
 
 
-    #route-search-form form div:last-child{
+    #route-search-form form div:last-child {
         text-align: center;
     }
 
-    form button{ 
-        border:2px solid;
+    form button {
+        border: 2px solid;
         padding: 0.3rem 0.7rem;
         font-weight: bolder;
         background-color: transparent;
@@ -177,38 +185,38 @@
         border-radius: 4px;
     }
 
-    form button:hover{
+    form button:hover {
         background-color: #fff;
         color: #201E22;
         cursor: pointer;
     }
 
-    #info-num{
+    #info-num {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    #info-num figure{
+    #info-num figure {
         flex-basis: 30%;
         padding: 2rem 0;
         text-align: center;
         border-radius: 5px;
     }
 
-    #info-num figcaption{
+    #info-num figcaption {
         margin-top: 1rem;
         text-transform: uppercase;
     }
 
-    #info-num .num{
+    #info-num .num {
         display: block;
         margin-bottom: 0.3rem;
         font-size: 1.2rem;
         font-weight: 800;
     }
 
-    #pnr-enquiry{
+    #pnr-enquiry {
         height: 80vh;
         background-image: url("https://www.daystar.ac.ke/images/home/subfooter-1.jpg");
         background-size: cover;
@@ -220,7 +228,7 @@
         text-align: center;
     }
 
-    #pnr-form{
+    #pnr-form {
         padding: 4rem 0;
         display: flex;
         flex-direction: column;
@@ -231,15 +239,15 @@
         z-index: 1;
     }
 
-    #pnr-form form{
+    #pnr-form form {
         width: 70%;
     }
 
-    #pnr-form input{
+    #pnr-form input {
         width: 100%;
     }
 
-    #pnr-form::before{
+    #pnr-form::before {
         content: "";
         position: absolute;
         height: 100%;
@@ -251,12 +259,12 @@
         opacity: 0.5;
     }
 
-    #pnr-form div{
+    #pnr-form div {
         margin: 1rem auto;
         width: 90%;
     }
 
-    #pnr-form button{
+    #pnr-form button {
         font-weight: bold;
         font-size: 14px;
         padding: 0.3rem 0.7rem;
@@ -268,12 +276,12 @@
         transition: background-color 400ms;
     }
 
-    #pnr-form button:hover{
+    #pnr-form button:hover {
         background-color: #ebecee;
         cursor: pointer;
     }
 
-    #about{
+    #about {
         text-align: center;
         padding: 3rem 0;
         background-color: #e5e5e5;
@@ -283,64 +291,65 @@
         align-items: center;
     }
 
-    #about h1{
+    #about h1 {
         margin: 0;
     }
 
-    #about p{
+    #about p {
         line-height: 26px;
     }
 
-    #contact{
-        
+    #contact {
+
         color: white;
         padding: 3rem 0;
     }
 
-    #contact-form{
+    #contact-form {
         width: 60%;
         margin: 0 auto;
     }
-    #contact-form h1{
+
+    #contact-form h1 {
         margin-top: 0;
         text-align: center;
     }
 
-    #contact-form label{
+    #contact-form label {
         display: block;
         margin-bottom: 1rem;
     }
 
-    #contact-form div{
+    #contact-form div {
         margin-top: 1rem;
     }
 
 
-    footer{
+    footer {
         padding: 1rem 0;
         text-align: center;
         font-weight: bold;
     }
 
-    footer p{
+    footer p {
         margin: 0;
     }
 
-    .pnr-details{
+    .pnr-details {
         list-style-type: none;
         padding: 0;
     }
 
-    .nav-scroll{
+    .nav-scroll {
         position: fixed;
         background-color: white;
     }
 
     /* Tablet */
-    @media only screen and (min-width: 784px){
-        
+    @media only screen and (min-width: 784px) {
 
-        header{
+
+        header {
             position: absolute;
             display: block;
             top: 0;
@@ -348,7 +357,8 @@
             z-index: 2;
             transition: background-color 500ms;
         }
-        nav{
+
+        nav {
             display: flex;
             justify-content: space-between;
             width: 100%;
@@ -356,44 +366,45 @@
             padding: 0.5rem;
         }
 
-        nav > div{
+        nav>div {
             display: flex;
             align-items: center;
             flex-grow: 1;
             justify-content: center;
         }
 
-        nav ul{
+        nav ul {
             display: flex;
             flex-grow: 1;
             justify-content: center;
         }
 
-        nav div, nav ul{
+        nav div,
+        nav ul {
             margin-top: 0;
         }
-        
-        nav a{
+
+        nav a {
             border-bottom: 2px solid transparent;
             margin: 0 1rem;
             transition: border-color 800ms;
             border-radius: 2px;
         }
 
-        nav a:not(.nav-logo):hover{
+        nav a:not(.nav-logo):hover {
             border-color: black;
             text-decoration: none;
         }
 
-        #home{
+        #home {
             height: 100vh;
             background-position: 40% 65%;
             background-attachment: fixed;
             display: block;
         }
 
-            
-        #route-search-form{
+
+        #route-search-form {
             position: absolute;
             top: 28%;
             right: 10%;
@@ -402,21 +413,21 @@
         }
 
 
-        #route-search-form h1{
+        #route-search-form h1 {
             margin-top: 0;
             text-align: center;
         }
 
-        form{
+        form {
             padding: 0 0.5rem;
             font-weight: bold;
         }
 
-        #route-search-form form > div{
+        #route-search-form form>div {
             margin: 1rem 0;
         }
 
-        #block{
+        #block {
             width: 100%;
         }
 
@@ -425,32 +436,33 @@
 
 
     /* Desktops */
-    @media only screen and (min-width: 992px){
+    @media only screen and (min-width: 992px) {
+
         /* Alert Message on top of the header */
-        .alert{
+        .alert {
             position: absolute;
-           width: 100%;
+            width: 100%;
             z-index: 3;
             border-radius: 0px;
         }
 
-        .alert-dark{
+        .alert-dark {
             width: 50%;
             left: 50%;
             transform: translateX(-50%);
-            border-radius:0;
+            border-radius: 0;
         }
 
-        nav{
+        nav {
             width: 80%;
         }
 
-        #home{
+        #home {
             background-position: 60% 65%;
         }
 
 
-        #route-search-form{
+        #route-search-form {
             position: absolute;
             top: 14%;
             right: 15%;
@@ -458,32 +470,33 @@
             padding: 2.5rem 2rem;
         }
 
-        #block{
+        #block {
             width: 90%;
             margin: 0 auto;
         }
 
-        #info-num figure{
+        #info-num figure {
             flex-basis: 15%;
         }
 
-        #pnr-enquiry{
+        #pnr-enquiry {
             height: 50vh;
         }
 
-        #pnr-form{
+        #pnr-form {
             width: 50%;
         }
 
-        #about{
+        #about {
             height: auto;
             padding: 2rem;
         }
-        #about div{
+
+        #about div {
             width: 50%;
         }
 
-        #contact-form{
+        #contact-form {
             width: 438px;
             margin: 0 auto;
         }

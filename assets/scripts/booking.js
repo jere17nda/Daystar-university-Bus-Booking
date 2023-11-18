@@ -1,32 +1,29 @@
 // Adding styles to navbar while scroll
 window.addEventListener("scroll", styleNav);
 
-function styleNav()
-{
-    document.querySelector("header").classList.toggle("nav-scroll", window.scrollY > 0);
+function styleNav() {
+  document
+    .querySelector("header")
+    .classList.toggle("nav-scroll", window.scrollY > 0);
 }
-
-
-
 
 // To show the covid Data
 const destState = document.querySelector(".route-desc").dataset.dest;
 const covidInfo = document.querySelector("#covidInfo");
 
-const endpoint = "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true";
+const endpoint =
+  "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true";
 
 let data;
 
-async function getCovidData()
-{
-    const response = await fetch(endpoint);
-    data = await response.json();
-    data = data.regionData.find(({region}) => 
-    {
-        return region.toUpperCase() === destState.toUpperCase();
-    });
-    console.log(data);
-    covidInfo.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+async function getCovidData() {
+  const response = await fetch(endpoint);
+  data = await response.json();
+  data = data.regionData.find(({ region }) => {
+    return region.toUpperCase() === destState.toUpperCase();
+  });
+  console.log(data);
+  covidInfo.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">Destination Covid Details</h4> 
     <p>Destination State : <strong>${destState.toUpperCase()}<strong></p>
     <hr>
@@ -56,38 +53,36 @@ async function getCovidData()
 
 getCovidData();
 
-
-function capitalize(data)
-{
-    return data[0].toUpperCase() + data.slice(1).toLowerCase();
+function capitalize(data) {
+  return data[0].toUpperCase() + data.slice(1).toLowerCase();
 }
 
 // Booking Operations
 const routeItems = document.querySelectorAll(".searched-result-item");
 const bookContainers = document.querySelectorAll(".bookContainer");
 
-bookContainers.forEach(container => container.addEventListener("click", collapseForm));
+bookContainers.forEach((container) =>
+  container.addEventListener("click", collapseForm)
+);
 
-routeItems.forEach(route => route.addEventListener("click", bookingForm));
+routeItems.forEach((route) => route.addEventListener("click", bookingForm));
 
-function bookingForm(evt)
-{
-    if(evt.target.className.includes("book-seat-btn"))
-    {
-        const btn = evt.target;
-        btn.disabled = true;
-        btn.style.opacity = "0.5";
+function bookingForm(evt) {
+  if (evt.target.className.includes("book-seat-btn")) {
+    const btn = evt.target;
+    btn.disabled = true;
+    btn.style.opacity = "0.5";
 
-        const bus_no = btn.dataset.busno;
-        const route_id = btn.dataset.routeid;
-        const booked_amount = btn.dataset.amount;
-        const source = btn.dataset.source;
-        const destination = btn.dataset.destination;
+    const bus_no = btn.dataset.busno;
+    const route_id = btn.dataset.routeid;
+    const booked_amount = btn.dataset.amount;
+    const source = btn.dataset.source;
+    const destination = btn.dataset.destination;
 
-        const bookRow = btn.parentElement.parentElement.nextElementSibling;
-        bookRow.classList.add("bookRow");
+    const bookRow = btn.parentElement.parentElement.nextElementSibling;
+    bookRow.classList.add("bookRow");
 
-        bookRow.innerHTML = `
+    bookRow.innerHTML = `
         <form class="bookForm" action="assets/partials/_handleBooking.php" method="POST">
         <!-- Seats Diagram -->
                 <div>
@@ -180,62 +175,60 @@ function bookingForm(evt)
         </form>
         `;
 
-        // Coloring booked seats
-        let seatData = btn.dataset.seats;
-        
-        // If already booked seat exists
-        if(seatData)
-        {
-            seatData = seatData.split(",");
-            seatData.forEach(seatNo => {
-                const seat = bookRow.querySelector(`.seat-${seatNo}`);
-                seat.classList.add("notAvailable");
-            })
-        }
-    }
-}
+    // Coloring booked seats
+    let seatData = btn.dataset.seats;
 
-function collapseForm(evt)
-{
-    if(evt.target.className.includes("close-btn"))
-    {
-        const close = evt.target;
-        console.dir(close);
-        const bookForm = close.parentElement;
-        const bookContainer = bookForm.parentElement;
-        const bookBtn = bookContainer.previousElementSibling.children[4].children[1];
-        bookBtn.disabled = false;
-        bookBtn.style.opacity="1";
-
-        bookContainer.classList.remove("bookRow");
-        bookForm.remove();
-    }
-}
-
-// Selecting Seats
-bookContainers.forEach(container => {
-    container.addEventListener("click", selectSeat);
-});
-
-let selected_id; 
-function selectSeat(evt)
-{
-  if(evt.target.nodeName == "TD" && !evt.target.className.includes("space") && !evt.target.className.includes("notAvailable"))
-  {
-    if(!selected_id || evt.target.dataset.name === selected_id)
-    {
-      selected_id = evt.target.dataset.name;
-      evt.target.classList.toggle("selected");
-
-      if(!evt.target.className.includes("selected"))
-      {
-        selected_id = "";
-      }
-
-    //   Selected seat will be shown in the particular input
-      evt.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.children[0].children[2].children["seat_selected"].value = selected_id;
-
+    // If already booked seat exists
+    if (seatData) {
+      seatData = seatData.split(",");
+      seatData.forEach((seatNo) => {
+        const seat = bookRow.querySelector(`.seat-${seatNo}`);
+        seat.classList.add("notAvailable");
+      });
     }
   }
 }
 
+function collapseForm(evt) {
+  if (evt.target.className.includes("close-btn")) {
+    const close = evt.target;
+    console.dir(close);
+    const bookForm = close.parentElement;
+    const bookContainer = bookForm.parentElement;
+    const bookBtn =
+      bookContainer.previousElementSibling.children[4].children[1];
+    bookBtn.disabled = false;
+    bookBtn.style.opacity = "1";
+
+    bookContainer.classList.remove("bookRow");
+    bookForm.remove();
+  }
+}
+
+// Selecting Seats
+bookContainers.forEach((container) => {
+  container.addEventListener("click", selectSeat);
+});
+
+let selected_id;
+function selectSeat(evt) {
+  if (
+    evt.target.nodeName == "TD" &&
+    !evt.target.className.includes("space") &&
+    !evt.target.className.includes("notAvailable")
+  ) {
+    if (!selected_id || evt.target.dataset.name === selected_id) {
+      selected_id = evt.target.dataset.name;
+      evt.target.classList.toggle("selected");
+
+      if (!evt.target.className.includes("selected")) {
+        selected_id = "";
+      }
+
+      //   Selected seat will be shown in the particular input
+      evt.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.children[0].children[2].children[
+        "seat_selected"
+      ].value = selected_id;
+    }
+  }
+}

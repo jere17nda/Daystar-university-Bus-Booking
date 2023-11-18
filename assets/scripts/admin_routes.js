@@ -4,40 +4,35 @@ const deleteBtns = document.querySelectorAll(".delete-button");
 const table = document.querySelector("table");
 const addRouteForm = document.querySelector("#addRouteForm");
 
+resultRows.forEach((row) => row.addEventListener("click", editOrDelete));
 
-resultRows.forEach(row => 
-    row.addEventListener("click", editOrDelete)  
-);
-
-if(table)
-{
-    table.addEventListener("click", collapseForm);
+if (table) {
+  table.addEventListener("click", collapseForm);
 }
 
-function collapseForm(evt){
-    if(evt.target.className.includes("btn-close")){
-        const collapseRow = evt.target.parentElement.parentElement.parentElement.parentElement;
+function collapseForm(evt) {
+  if (evt.target.className.includes("btn-close")) {
+    const collapseRow =
+      evt.target.parentElement.parentElement.parentElement.parentElement;
 
-        // enable the edit button
-        const editBtn = collapseRow.previousElementSibling.children[6].children[0];
-        editBtn.disabled = false;
-        editBtn.classList.remove("disabled");
+    // enable the edit button
+    const editBtn = collapseRow.previousElementSibling.children[6].children[0];
+    editBtn.disabled = false;
+    editBtn.classList.remove("disabled");
 
-        // Collapse the row
-        collapseRow.remove();
-    }
+    // Collapse the row
+    collapseRow.remove();
+  }
 }
 
-function editOrDelete(evt){
-    
-    if(evt.target.className.includes("edit-button"))
-    {
-        // Disable the button
-        evt.target.disabled = true;
-        evt.target.classList.add("disabled");
+function editOrDelete(evt) {
+  if (evt.target.className.includes("edit-button")) {
+    // Disable the button
+    evt.target.disabled = true;
+    evt.target.classList.add("disabled");
 
-        const editRow = document.createElement("tr");
-        editRow.innerHTML = `
+    const editRow = document.createElement("tr");
+    editRow.innerHTML = `
         <td colspan="7">
             <form class="editRouteForm d-flex justify-content-between" action="${evt.target.dataset.link}" method="POST">
 
@@ -66,18 +61,15 @@ function editOrDelete(evt){
             </form>
         </td>
     `;
-    
+
     this.after(editRow);
-    }
-    // if delete button is clicked
-    else if(evt.target.className.includes("delete-button"))
-    {
-        const deleteInput = document.querySelector("#delete-id");
-        deleteInput.value = evt.target.dataset.id;
-    }
+  }
+  // if delete button is clicked
+  else if (evt.target.className.includes("delete-button")) {
+    const deleteInput = document.querySelector("#delete-id");
+    deleteInput.value = evt.target.dataset.id;
+  }
 }
-
-
 
 // Route element
 const routesBody = document.body;
@@ -91,15 +83,14 @@ const suggBoxes = document.querySelectorAll(".sugg");
 let data = JSON.parse(busJson);
 
 routesBody.addEventListener("click", listenforBusSearches);
-function listenforBusSearches(evt){
-    if(evt.target.className.includes("busnoInput"))
-    {
-        const searchInput = evt.target;
-        const searchBox = searchInput.parentElement;
-        const suggBox = searchInput.nextElementSibling;
-        searchInput.addEventListener("input", showSuggestions);
-        suggBox.addEventListener("click", selectSuggestion);
-    }
+function listenforBusSearches(evt) {
+  if (evt.target.className.includes("busnoInput")) {
+    const searchInput = evt.target;
+    const searchBox = searchInput.parentElement;
+    const suggBox = searchInput.nextElementSibling;
+    searchInput.addEventListener("input", showSuggestions);
+    suggBox.addEventListener("click", selectSuggestion);
+  }
 }
 
 // Collapses the suggestions Box when the input is not focussed on
@@ -114,31 +105,34 @@ function listenforBusSearches(evt){
 //     }
 // }
 
-function selectSuggestion(evt){
-    if(evt.target.nodeName === "LI")
-    {
-        this.previousElementSibling.value = evt.target.innerText;
-        this.innerText = "";
-    }
+function selectSuggestion(evt) {
+  if (evt.target.nodeName === "LI") {
+    this.previousElementSibling.value = evt.target.innerText;
+    this.innerText = "";
+  }
 }
 
-function showSuggestions()
-{
-    const word = this.value;
-    if(!word)
-    {
-        this.nextElementSibling.innerText = "";
-        return;
-    }
+function showSuggestions() {
+  const word = this.value;
+  if (!word) {
+    this.nextElementSibling.innerText = "";
+    return;
+  }
 
-    const regex = new RegExp(word, "gi");
+  const regex = new RegExp(word, "gi");
 
-    let suggestions = data.filter(({bus_no}) => {
-        return bus_no.match(regex);
-    }).map(({bus_no}) => {
-        const bus_num = bus_no.replace(regex, `<span class="hl">${this.value.toUpperCase()}</span>`);;
-        return `<li>${bus_num}</li>`;
-    }).join("");
+  let suggestions = data
+    .filter(({ bus_no }) => {
+      return bus_no.match(regex);
+    })
+    .map(({ bus_no }) => {
+      const bus_num = bus_no.replace(
+        regex,
+        `<span class="hl">${this.value.toUpperCase()}</span>`
+      );
+      return `<li>${bus_num}</li>`;
+    })
+    .join("");
 
-    this.nextElementSibling.innerHTML = suggestions;
+  this.nextElementSibling.innerHTML = suggestions;
 }

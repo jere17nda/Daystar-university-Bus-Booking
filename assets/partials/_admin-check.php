@@ -1,10 +1,8 @@
 <?php
-    session_start();
+session_start();
 
-    if(!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"])
-    {
-        header("location: /index.php");
-    }
+if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
+    header("location: /index.php");
+}
 
-    $loggedIn = true;
-?>
+$loggedIn = true;
