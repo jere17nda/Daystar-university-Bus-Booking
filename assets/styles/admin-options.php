@@ -207,8 +207,6 @@
         overflow: auto;
     }
 
-    .editRouteForm .sugg {}
-
     .sugg li {
         border: solid #b0b0b0;
         border-width: 0 2px 2px 2px;
